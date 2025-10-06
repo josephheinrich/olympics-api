@@ -1,0 +1,3 @@
+namespace Olympics.Api.Dtos;
+
+public record EventDto(int Id, string EventName);
