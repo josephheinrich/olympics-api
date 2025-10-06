@@ -11,10 +11,11 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     {
         modelBuilder.Entity<Event>(entity =>
         {
-            entity.ToTable("events");           // dbo.events
-            entity.HasKey(e => e.Id);
-            entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.EventName).HasColumnName("event_name");
+            entity.ToTable("Event");           // dbo.events
+            entity.HasKey(e => e.EventId);
+            entity.Property(e => e.EventId).HasColumnName("EventId");
+            entity.Property(e => e.SportId).HasColumnName("SportId");
+            entity.Property(e => e.EventName).HasColumnName("EventName");
         });
     }
 }

@@ -24,7 +24,7 @@ public class EventsController(AppDbContext db, IMapper mapper) : ControllerBase
     [HttpGet("{id:int}")]
     public async Task<ActionResult<EventDto>> GetById(int id)
     {
-        var entity = await db.Events.AsNoTracking().FirstOrDefaultAsync(e => e.Id == id);
+        var entity = await db.Events.AsNoTracking().FirstOrDefaultAsync(e => e.EventId == id);
         if (entity is null) return NotFound();
         return Ok(mapper.Map<EventDto>(entity));
     }
